@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/registratie.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+</head>
+<body>
+    <div class="registratie">
+        <div class="admin">
+            <h2>Registratie</h2>
+            <button id="btn_admin" class="button button_black" type="button" onclick="location.href='{% url 'computers' %}'">Admin</button><br><br>
+        </div>
+
+        <div class="form">
+            <form action="post_registratie" method="POST">
+                {% csrf_token %}
+
+                <label>Merk</label>
+                <input type="text" name="merk" required>
+                <br><br>
+
+                <label>Type</label>
+                <select class="custom_select" name="type">
+                  <option value="laptop">Laptop</option>
+                  <option value="desktop">Desktop</option>
+                </select>
+                <br><br>
+
+                <label>Processor</label>
+                <input type="text" name="processor" required>
+                <br><br>
+
+                <label>Werkgeheugen</label>
+                <input type="text" name="werkgeheugen" required>
+                <br><br>
+
+                <label>Omschrijving defecten</label>
+                <textarea name="defecten" required></textarea>
+
+                <div class="btn_registreer">
+                    <input class="button button_black" type="submit" value="registreer">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

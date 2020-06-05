@@ -1,0 +1,34 @@
+body {background-color: #CDCDCD;}
+
+#buttons {
+  margin: auto;
+  margin-bottom: 20px;
+  width: 32%;
+  padding: 10px;
+}
+
+#table_computers {background-color: #FFF}
+
+#computers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#computers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#computers tr:nth-child(even){background-color: #f2f2f2;}
+
+#computers tr:hover {background-color: #ddd;}
+
+#computers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #555555;
+    color: white;
+}
+

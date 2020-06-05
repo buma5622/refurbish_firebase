@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/computers.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+</head>
+<body>
+
+    <div id="buttons">
+        <button  class="button button_black" type="button" onclick="location.href='{% url 'registratie' %}'">Registratie</button>
+        <button class="button button_black" type="button" >Reparatie</button>
+        <button class="button button_black" type="button" >Magazijn</button>
+        <button class="button button_black" type="button" >Verkoop</button>
+    </div>
+
+    {% if computers %}
+        <div id="table_computers">
+            <table id="computers">
+                <tr>
+                    <th>SKU</th>
+                    <th>Merk</th>
+                    <th>Type</th>
+                    <th>Processor</th>
+                    <th>Werkgeheugen</th>
+                    <th>Defecten</th>
+                </tr>
+
+                {% for computer in computers %}
+                    <tr>
+                        <td> {{ computer.sku }} </td>
+                        <td> {{ computer.merk }} </td>
+                        <td> {{ computer.type }} </td>
+                        <td> {{ computer.processor }} </td>
+                        <td> {{ computer.werkgeheugen }} </td>
+                        <td> {{ computer.defecten }} </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+</body>
+</html>
