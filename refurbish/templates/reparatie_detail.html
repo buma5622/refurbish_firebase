@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/formulier.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reparatie_formulier.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+</head>
+<body>
+    <div class="formulier">
+        <div class="admin">
+            <h2>Reparatie Detail</h2>
+            <button id="btn_admin" class="button button_black" type="button" onclick="location.href='{% url 'reparatie' %}'">Reparatie</button><br><br>
+        </div>
+
+        <div class="form">
+            <form action="post_reparatie/{{ computer.sku }}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <label>SKU</label>
+                <input type="text" name="merk" value="{{ computer.sku }}" disabled>
+                <br><br>
+
+                <label>Afbeelding</label>
+                <input type="file" name="afbeelding">
+                <br><br>
+
+                <label>Omschrijving defecten</label>
+                <textarea name="defecten" disabled>{{ computer.defecten }}</textarea>
+                <br><br>
+
+                <label for="checkid"  style="word-wrap:break-word">
+                    <input id="checkid" type="checkbox" value="1" name="gerepareerd"/> Gerepareerd
+                </label>
+
+                <div class="btn_reparatie">
+                    <input class="button button_black" type="submit" value="gerepareerd">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

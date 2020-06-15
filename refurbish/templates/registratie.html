@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/registratie.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/formulier.css' %}">
     <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
 </head>
 <body>
-    <div class="registratie">
+    <div class="formulier">
         <div class="admin">
             <h2>Registratie</h2>
-            <button id="btn_admin" class="button button_black" type="button" onclick="location.href='{% url 'computers' %}'">Admin</button><br><br>
+            <button id="btn_admin" class="button button_black" type="button" onclick="location.href='{% url 'computers' %}'">Admin</button><br>
         </div>
 
         <div class="form">
-            <form action="post_registratie" method="POST">
+            <form action="post_registratie" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-
                 <label>Merk</label>
                 <input type="text" name="merk" required>
                 <br><br>
@@ -40,7 +40,7 @@
                 <label>Omschrijving defecten</label>
                 <textarea name="defecten" required></textarea>
 
-                <div class="btn_registreer">
+                <div class="btn_formulier">
                     <input class="button button_black" type="submit" value="registreer">
                 </div>
             </form>

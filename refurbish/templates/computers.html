@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/computers.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
 </head>
 <body>
 
     <div id="buttons">
         <button  class="button button_black" type="button" onclick="location.href='{% url 'registratie' %}'">Registratie</button>
-        <button class="button button_black" type="button" >Reparatie</button>
+        <button class="button button_black" type="button"  onclick="location.href='{% url 'reparatie' %}'">Reparatie</button>
         <button class="button button_black" type="button" >Magazijn</button>
         <button class="button button_black" type="button" >Verkoop</button>
     </div>
@@ -26,6 +26,8 @@
                     <th>Processor</th>
                     <th>Werkgeheugen</th>
                     <th>Defecten</th>
+                    <th>Afbeelding</th>
+                    <th>Gerepareerd</th>
                 </tr>
 
                 {% for computer in computers %}
@@ -36,6 +38,12 @@
                         <td> {{ computer.processor }} </td>
                         <td> {{ computer.werkgeheugen }} </td>
                         <td> {{ computer.defecten }} </td>
+                        <td> {{ computer.afbeelding }} </td>
+                        {% if computer.gerepareerd %}
+                            <td>Ja</td>
+                        {% else %}
+                            <td>Nee</td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
             </table>

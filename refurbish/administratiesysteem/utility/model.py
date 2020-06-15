@@ -40,11 +40,11 @@ class Model:
 
     def where(self, key, value):
         table = self.all()
-        container = []
+        container = {}
 
         for item in table:
             if item[key] == value:
-                container.append(item)
+                container = item
 
         return container
 
